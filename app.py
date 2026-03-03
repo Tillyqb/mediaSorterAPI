@@ -11,12 +11,14 @@ app = Flask(__name__)
 CORS(app)
 
 def fetch_movie_data(title):
+    print(f"Fetching data for movie: {title}")
     
     params = {
         's': title,
         'plot': 'short'
     }
     response = requests.get(omdb_api_url, params=params)
+    print(response)
     if (response.status_code == 200):
         return response.json()
     else:
@@ -35,14 +37,17 @@ def add_cors_headers(movie_data):
 def get_movies():
     title = request.args.get('title', default='Dune', type=str)
     response = fetch_movie_data(title)
+    print(response)
     movie_data = []
     for movie in response.get('Search', []):
         movie_data.append(movie)
+    print(movie_data)
     return jsonify(movie_data)
 
 def get_movie():
     title = request.args.get('title', default='Dune', type=str)
     response = fetch_movie_data(title)
+    print(response)
     return jsonify(response)
 
 if __name__ == '__main__':
