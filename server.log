@@ -1,0 +1,185 @@
+nohup: ignoring input
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 860-198-182
+127.0.0.1 - - [03/Mar/2026 14:42:30] "[35m[1mGET /movies/all HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ^
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: movie.poster_location
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/data/python/lib/python3.13/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/data/python/lib/python3.13/site-packages/flask/app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+  File "/var/data/python/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "/var/data/python/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/var/data/python/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/var/data/python/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "/var/data/python/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/var/data/python/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/tillyqb/Documents/Seafile/Documents/projects/mediaSorter/mediaSorterAPI/app.py", line 158, in list_movies
+    movies = Movie.query.all()
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ~~~~~~~~~~^^
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ^
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ^
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: movie.poster_location
+[SQL: SELECT movie.id AS movie_id, movie.imdb_id AS movie_imdb_id, movie.title AS movie_title, movie.poster_location AS movie_poster_location, movie.release_date AS movie_release_date 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+127.0.0.1 - - [03/Mar/2026 14:42:30] "[35m[1mPOST /movies HTTP/1.1[0m" 500 -
+127.0.0.1 - - [03/Mar/2026 14:42:30] "[35m[1mGET /movies/all HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ^
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: movie.poster_location
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/data/python/lib/python3.13/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/data/python/lib/python3.13/site-packages/flask/app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+  File "/var/data/python/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "/var/data/python/lib/python3.13/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/var/data/python/lib/python3.13/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/var/data/python/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "/var/data/python/lib/python3.13/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/var/data/python/lib/python3.13/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/tillyqb/Documents/Seafile/Documents/projects/mediaSorter/mediaSorterAPI/app.py", line 158, in list_movies
+    movies = Movie.query.all()
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ~~~~~~~~~~^^
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+    
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ^
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ^
+  File "/var/data/python/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: movie.poster_location
+[SQL: SELECT movie.id AS movie_id, movie.imdb_id AS movie_imdb_id, movie.title AS movie_title, movie.poster_location AS movie_poster_location, movie.release_date AS movie_release_date 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+imdb # in fetch_movie_by_imdb tt9999999
+fetch_movie_by_imdb tt9999999
+find status 200
+detail status 200
+127.0.0.1 - - [03/Mar/2026 14:42:30] "GET /movies/tt9999999 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Mar/2026 14:52:11] "GET /movies/all HTTP/1.1" 200 -
+127.0.0.1 - - [03/Mar/2026 14:52:11] "[35m[1mPOST /movies HTTP/1.1[0m" 201 -
+127.0.0.1 - - [03/Mar/2026 14:52:11] "GET /movies/all HTTP/1.1" 200 -
+imdb # in fetch_movie_by_imdb tt9999999
+fetch_movie_by_imdb tt9999999
+find status 200
+detail status 200
+127.0.0.1 - - [03/Mar/2026 14:52:11] "GET /movies/tt9999999 HTTP/1.1" 200 -
+ * Detected change in '/home/tillyqb/Documents/Seafile/Documents/projects/mediaSorter/mediaSorterAPI/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 877-092-967
+ * Detected change in '/home/tillyqb/Documents/Seafile/Documents/projects/mediaSorter/mediaSorterAPI/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 101-267-879
