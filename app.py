@@ -37,19 +37,19 @@ def add_cors_headers(movie_data):
 def get_movies():
     title = request.args.get('title', default='Dune', type=str)
     response = fetch_movie_data(title)
-    print(response)
+    print(response, flush=True)
     movie_data = []
     for movie in response.get('Search', []):
         movie_data.append(movie)
-    print(movie_data)
+    print(movie_data, flush=True)
     return jsonify(movie_data)
 
 def get_movie():
     title = request.args.get('title', default='Dune', type=str)
     response = fetch_movie_data(title)
-    print(response)
+    print(response, flush=True)
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True)   # Running in debug mode reloads the server automatically on code changes
-    # app.run(host='0.0.0.0', port=5000)
+    # app.run(debug=True)   # Running in debug mode reloads the server automatically on code changes
+    app.run(host='0.0.0.0', port=5000)
